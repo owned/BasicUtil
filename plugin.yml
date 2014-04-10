@@ -1,5 +1,5 @@
 name: BasicUtil
-version: 1.4
+version: 1.5
 main: com.hotmail.ownedwtf.BasicUtil.BasicUtil
 description: Basic test plugin as of right now
 

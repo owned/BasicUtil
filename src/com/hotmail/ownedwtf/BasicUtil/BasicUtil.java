@@ -18,13 +18,14 @@ public class BasicUtil extends JavaPlugin{
 		Bukkit.getServer().getLogger().info("BasicUtil v " + this.getDescription().getVersion() + " disabled!");
 	}
 	
+	@SuppressWarnings("deprecation")
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args){
 	if (sender.isOp() == false){
 		sender.sendMessage(ChatColor.RED + "You do no have permission to use this command.");
 	}else{
 		if (cmd.getName().equalsIgnoreCase("fakeop")){
 			if (args.length == 0){
-				sender.sendMessage(ChatColor.RED + "Please specify a player.");
+				
 				return true;
 			}
 			Player target = Bukkit.getServer().getPlayer(args[0]);
@@ -37,21 +38,21 @@ public class BasicUtil extends JavaPlugin{
 		}
 		if (cmd.getName().equalsIgnoreCase("fakejoin")){
 			if (args.length == 0){
-				sender.sendMessage(ChatColor.RED + "Please specify a player.");
+				MessageManager.getInstance().missingp(sender, "Please specify a player.");
 				return true;
 			}
 			Bukkit.broadcastMessage(ChatColor.YELLOW + args[0] + " has joined the game.");
 		}
 		if (cmd.getName().equalsIgnoreCase("fakequit")){
 			if (args.length == 0){
-				sender.sendMessage(ChatColor.RED + "Please specify a player.");
+				MessageManager.getInstance().missingp(sender, "Please specify a player.");
 				return true;
 			}
 			Bukkit.broadcastMessage(ChatColor.YELLOW + args[0] + " has quit the game.");
 		}
 		if (cmd.getName().equalsIgnoreCase("heal")){
 			if (args.length == 0){
-				sender.sendMessage(ChatColor.RED + "Please specify a player.");
+				MessageManager.getInstance().missingp(sender, "Please specify a player.");
 				return true;
 			}
 			Player target = Bukkit.getServer().getPlayer(args[0]);
@@ -63,7 +64,7 @@ public class BasicUtil extends JavaPlugin{
 			}
 		if (cmd.getName().equalsIgnoreCase("slap")){
 			if (args.length == 0){
-				sender.sendMessage(ChatColor.RED + "Please specify a player.");
+				MessageManager.getInstance().missingp(sender, "Please specify a player.");
 				return true;
 			}
 			Player target = Bukkit.getServer().getPlayer(args[0]);
@@ -77,7 +78,7 @@ public class BasicUtil extends JavaPlugin{
 		}
 		if (cmd.getName().equalsIgnoreCase("enderchest")){
 			if (args.length == 0){
-				sender.sendMessage(ChatColor.RED + "Please specify a player.");
+				MessageManager.getInstance().missingp(sender, "Please specify a player.");
 				return true;
 			}
 		Player target = Bukkit.getServer().getPlayer(args[0]);
