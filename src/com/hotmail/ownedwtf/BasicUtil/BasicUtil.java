@@ -19,6 +19,9 @@ public class BasicUtil extends JavaPlugin{
 	}
 	
 	public boolean onCommand(CommandSender sender, Command cmd, String commandLabel, String[] args){
+	if (sender.isOp() == false){
+		sender.sendMessage(ChatColor.RED + "You do no have permission to use this command.");
+	}else{
 		if (cmd.getName().equalsIgnoreCase("fakeop")){
 			if (args.length == 0){
 				sender.sendMessage(ChatColor.RED + "Please specify a player.");
@@ -65,17 +68,26 @@ public class BasicUtil extends JavaPlugin{
 			}
 			Player target = Bukkit.getServer().getPlayer(args[0]);
 			if (target == null){
-				sender.sendMessage(ChatColor.RED + "Could not find player" + args[0] + ".");
+				sender.sendMessage(ChatColor.RED + "Could not find player " + args[0] + ".");
 				return true;
 			}
-			target.damage(1);
+			target.damage(3);
 			target.playSound(target.getLocation(), Sound.FALL_BIG, 100, 100);
 			target.sendMessage(ChatColor.RED + "You obviously did something wrong if you are getting slapped so stop it!");
 		}
-		Player target = Bukkit.getServer().getPlayer(args[0]);
 		if (cmd.getName().equalsIgnoreCase("enderchest")){
-			target.getEnderChest();
+			if (args.length == 0){
+				sender.sendMessage(ChatColor.RED + "Please specify a player.");
+				return true;
+			}
+		Player target = Bukkit.getServer().getPlayer(args[0]);
+			if (target == null){
+			sender.sendMessage(ChatColor.RED + "Could not find player " + args[0] + ".");
+			return true;
 		}
-		return true;
+			target.openInventory(target.getEnderChest());
+		}
 	}
+	return true;
+}
 }
