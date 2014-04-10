@@ -1,0 +1,24 @@
+name: BasicUtil
+version: 1.3
+main: com.hotmail.ownedwtf.BasicUtil.BasicUtil
+description: Basic test plugin as of right now
+
+commands:
+    fakeop:
+       usage: /<command>
+       description: fake op
+    fakejoin:
+       usage: /<command>
+       description: fakejoin
+    fakequit:
+       usage: /<command>
+       description: fakequit
+    heal:
+       usage: /<command>
+       description: heal
+    slap:
+       usage: /<command>
+       description: slap fools
+    enderchest:
+       usage: /<command>
+       description: portable enderchest
